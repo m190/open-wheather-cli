@@ -1,8 +1,20 @@
-import yargs = require('yargs');
+import yargs = require("yargs");
+import prompts = require("prompts");
+import {PromptObject} from "prompts";
 
 enum Temp {
     CELSIUS = "c",
     FAHRENHEIT = "f"
+}
+
+interface QuestionAnswers {
+    city: string;
+    temp: Temp;
+}
+
+interface InputArgs extends QuestionAnswers {
+    last: boolean;
+    import: string;
 }
 
 const argv = yargs
@@ -26,6 +38,29 @@ const argv = yargs
             describe: "Import the config file"
         }
     })
-    .argv;
+    .argv as InputArgs;
 
 console.log(argv);
+
+const questions: Array<PromptObject> = [
+    {
+        type: "text",
+        name: "city",
+        message: "What's the city/zip code?"
+    },
+    {
+        type: "select",
+        name: "temp",
+        message: "Celsius or Fahrenheit?",
+        choices: [
+            { title: 'Celsius', value: Temp.CELSIUS },
+            { title: 'Fahrenheit', value: Temp.FAHRENHEIT }
+        ],
+        initial: 0
+    }
+];
+
+(async () => {
+    const response = await prompts(questions) as QuestionAnswers;
+    console.log(response);
+})();
