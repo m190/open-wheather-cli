@@ -1,2 +1,13 @@
-export const OPENWEATHER_URL = process.env.OPENWEATHER_URL || "https://samples.openweathermap.org/data/2.5/weather";
-export const OPENWEATHER_APPID = process.env.OPENWEATHER_APPID || "b6907d289e10d714a6e88b30761fae22";
+import dotenv from "dotenv";
+import fs from "fs";
+
+if (fs.existsSync(".env")) {
+    dotenv.config({ path: ".env" });
+}
+
+export const OPENWEATHER_URL: string = process.env.OPENWEATHER_URL!;
+export const OPENWEATHER_APPID: string = process.env.OPENWEATHER_APPID!;
+
+if (!OPENWEATHER_URL || !OPENWEATHER_APPID) {
+    throw new Error("OpenWeather API config missing.");
+}
