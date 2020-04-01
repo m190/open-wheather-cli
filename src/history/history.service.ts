@@ -1,7 +1,7 @@
-import {WeatherInfo} from "../common/weather-info";
-import fs, {promises as fsp} from "fs";
+import fs, { promises as fsp } from "fs";
 import os from "os";
 import path from "path";
+import { WeatherInfo } from "../common/weather-info";
 
 export class HistoryService {
 

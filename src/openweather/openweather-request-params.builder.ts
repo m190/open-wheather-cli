@@ -1,7 +1,7 @@
-import {RequestParamsBuilder} from "./request-params.builder";
-import {TemperatureConverter} from "./temp.converter";
-import {Temp} from "../common/temp";
-import {OPENWEATHER_APPID} from "../config/config";
+import { RequestParamsBuilder } from "./request-params.builder";
+import { TemperatureConverter } from "./temp.converter";
+import { Temp } from "../common/temp";
+import { OPENWEATHER_APPID } from "../config/config";
 
 export class OpenweatherRequestParamsBuilder implements RequestParamsBuilder {
 
@@ -22,6 +22,6 @@ export class OpenweatherRequestParamsBuilder implements RequestParamsBuilder {
         if (!this.location || !this.units) {
             throw new Error("Required attributes was not provided.");
         }
-        return {"q": this.location, "units": this.units, "appid": OPENWEATHER_APPID};
+        return { q: this.location, units: this.units, appid: OPENWEATHER_APPID };
     }
 }

@@ -13,7 +13,7 @@ export interface OpenweatherSuccessResponse {
 }
 
 export interface OpenweatherErrorResponse {
-    error: string
+    error: string;
 }
 
 export type OpenweatherResponse = OpenweatherSuccessResponse | OpenweatherErrorResponse;

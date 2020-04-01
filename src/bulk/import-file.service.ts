@@ -1,5 +1,5 @@
-import {WeatherInfo} from "../common/weather-info";
-import fs, {promises as fsp} from "fs";
+import fs, { promises as fsp } from "fs";
+import { WeatherInfo } from "../common/weather-info";
 
 export class ImportFileService {
 

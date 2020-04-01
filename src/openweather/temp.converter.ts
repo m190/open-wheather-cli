@@ -1,4 +1,4 @@
-import {Temp} from "../common/temp";
+import { Temp } from "../common/temp";
 
 export class TemperatureConverter {
 

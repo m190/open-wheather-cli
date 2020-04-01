@@ -1,4 +1,4 @@
-import {WeatherInfo} from "../common/weather-info";
+import { WeatherInfo } from "../common/weather-info";
 
 export interface InputArgs extends WeatherInfo {
     last: boolean;

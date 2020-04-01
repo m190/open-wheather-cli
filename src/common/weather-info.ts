@@ -1,4 +1,4 @@
-import {Temp} from "./temp";
+import { Temp } from "./temp";
 
 export interface WeatherInfo {
     city: string;
