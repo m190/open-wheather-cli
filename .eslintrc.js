@@ -8,14 +8,15 @@ module.exports = {
         "airbnb-typescript/base",
     ],
     "parserOptions": {
-        "project": "./tsconfig.json",
+        "project": "./tsconfig.eslint.json",
     },
     "env": {
         "browser": true,
         "node": true,
         "commonjs": true,
         "jasmine": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "globals": {
         "isNaN": true,
