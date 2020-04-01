@@ -10,6 +10,7 @@
   "author": "Alexandr Maximov",
   "license": "ISC",
   "dependencies": {
+    "got": "^10.7.0",
     "prompts": "^2.3.2",
     "yargs": "^15.3.1"
   },
