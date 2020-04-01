@@ -4,7 +4,7 @@ import {InputArgs} from "./input-args";
 
 export class ArgsParser {
 
-    static getArgs() {
+    static getArgs(): InputArgs {
         return yargs
             .options({
                 "city": {

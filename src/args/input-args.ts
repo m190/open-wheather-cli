@@ -1,8 +1,6 @@
-import {Temp} from "../common/temp";
+import {WeatherInfo} from "../common/weather-info";
 
-export interface InputArgs {
-    city: string;
-    temp: Temp;
+export interface InputArgs extends WeatherInfo {
     last: boolean;
     import: string;
 }

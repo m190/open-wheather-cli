@@ -8,7 +8,8 @@ export class Questionary {
         {
             type: "text",
             name: "city",
-            message: "What's the city/zip code?"
+            message: "What's the city/zip code?",
+            validate: (val: string) => val && val.length > 0 ? true : "Should not be empty"
         },
         {
             type: "select",
