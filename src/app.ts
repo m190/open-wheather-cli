@@ -4,6 +4,7 @@ import { OpenweatherService } from "./openweather/openweather.service";
 import { WeatherInfo } from "./common/weather-info";
 import { HistoryService } from "./history/history.service";
 import { ImportFileService } from "./bulk/import-file.service";
+import { LocationService } from "./location/location.service";
 
 const fetchBulk = async (path: string) => {
     const locations = await ImportFileService.getLocations(path);
@@ -18,17 +19,16 @@ const fetchLast = async () => {
     console.log(result);
 };
 
-const fetch = async (info: WeatherInfo) => {
+const fetch = async (info: WeatherInfo, geo: boolean) => {
     let data = info;
 
     if (!data.city) {
-        data = await Questionary.getAnswers();
+        const city = geo ? await LocationService.getLocation() : "";
+        data = await Questionary.getAnswers(city);
     }
 
-    if (data.city && data.temp) {
-        const [result] = await Promise.all([OpenweatherService.getWeather(data), HistoryService.saveLast(data)]);
-        console.log(result);
-    }
+    const [result] = await Promise.all([OpenweatherService.getWeather(data), HistoryService.saveLast(data)]);
+    console.log(result);
 };
 
 (async () => {
@@ -39,6 +39,6 @@ const fetch = async (info: WeatherInfo) => {
     } else if (argv.last) {
         await fetchLast();
     } else {
-        await fetch(argv);
+        await fetch(argv, !argv.nogeo);
     }
 })();

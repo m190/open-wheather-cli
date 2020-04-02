@@ -24,6 +24,9 @@ export class ArgsParser {
                 import: {
                     alias: "i",
                     describe: "Import the config file"
+                },
+                nogeo: {
+                    describe: "Do not use geolocation for hints"
                 }
             })
             .argv as InputArgs;
